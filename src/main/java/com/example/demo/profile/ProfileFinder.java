@@ -14,6 +14,7 @@ public class ProfileFinder {
 		String[] activeProfiles = environment.getActiveProfiles();
 		Preconditions.checkNotNull(activeProfiles, "must have spring profile value.");
 		Preconditions.checkState(activeProfiles.length > 0, "must have at least one profile value.");
+		Preconditions.checkState(!(activeProfiles.length > 1), "must have at only one profile value.");
 		this.profile = Profile.find(activeProfiles[0]);
 	}
 
